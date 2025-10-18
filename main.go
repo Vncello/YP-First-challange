@@ -101,6 +101,6 @@ func main() {
 		//fmt.Println(Stats)
 		Stats.CheckStatistic()
 
-		time.Sleep(2 * time.Second)
+		//time.Sleep(2 * time.Second)
 	}
 }
