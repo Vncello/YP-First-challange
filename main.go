@@ -36,7 +36,7 @@ func (s *StatsServe) CheckStatistic() {
 	}
 
 	if percentRAM:=(float32(s.RAMUsed)/float32(s.RAMTotal)); percentRAM > TrashPercentRamUsed {
-		fmt.Printf("Memory usage too high: %.0f%\n", percentRAM*100)
+		fmt.Printf("Memory usage too high: %.0f%%\n", percentRAM*100)
 	}
 
 	if FreeDisk := -float32(s.DiskUsed)+float32(s.DiskTotal); FreeDisk/float32(s.DiskTotal) < (1-TrashPercentDiskUsed) {
