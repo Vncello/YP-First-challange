@@ -44,7 +44,7 @@ func (s *StatsServe) CheckStatistic() {
 	}
 
 	if FreeNet := float32(s.NetTotal) - float32(s.NetUsed); FreeNet/float32(s.NetTotal) < (1 - TrashPercentNetUsed) {
-		fmt.Printf("Network bandwidth usage high: %d Mbit/s available\n", int(FreeNet/BytesInMB))
+		fmt.Printf("Network bandwidth usage high: %d Mbit/s available\n", int(FreeNet/1000000))
 	}
 }
 
