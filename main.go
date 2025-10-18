@@ -40,11 +40,11 @@ func (s *StatsServe) CheckStatistic() {
 	}
 
 	if FreeDisk := -float32(s.DiskUsed) + float32(s.DiskTotal); FreeDisk/float32(s.DiskTotal) < (1 - TrashPercentDiskUsed) {
-		fmt.Printf("Free disk space is too low: %.0f Mb left\n", FreeDisk/BytesInMB)
+		fmt.Printf("Free disk space is too low: %d Mb left\n", int(FreeDisk/BytesInMB))
 	}
 
 	if FreeNet := float32(s.NetTotal) - float32(s.NetUsed); FreeNet/float32(s.NetTotal) < (1 - TrashPercentNetUsed) {
-		fmt.Printf("Network bandwidth usage high: %.0f Mbit/s available\n", FreeNet/BytesInMB)
+		fmt.Printf("Network bandwidth usage high: %d Mbit/s available\n", int(FreeNet/BytesInMB))
 	}
 }
 
@@ -74,7 +74,7 @@ func main() {
 			return
 		}
 
-		//body := "32,21474836481934,1073741824,5497558138880,4398046511104,104857600,6291456"
+		//body := "9,4707314194,1909918678,371916994759,100338391010,7917216201,1162050106"
 		parts := strings.Split(string(body), ",")
 
 		var mySlice = make([]int, 7)
