@@ -36,15 +36,15 @@ func (s *StatsServe) CheckStatistic() {
 	}
 
 	if percentRAM:=(float32(s.RAMUsed)/float32(s.RAMTotal)); percentRAM > TrashPercentRamUsed {
-		fmt.Printf("Memory usage too high: %d%\n", percentRAM*100)
+		fmt.Printf("Memory usage too high: %.0f%\n", percentRAM*100)
 	}
 
 	if FreeDisk := -float32(s.DiskUsed)+float32(s.DiskTotal); FreeDisk/float32(s.DiskTotal) < (1-TrashPercentDiskUsed) {
-		fmt.Printf("Free disk space is too low: %d Mb left\n", FreeDisk/BytesInMB)
+		fmt.Printf("Free disk space is too low: %.0f Mb left\n", FreeDisk/BytesInMB)
 	}
 
 	if FreeNet := float32(s.NetTotal) - float32(s.NetUsed); FreeNet/float32(s.NetTotal) < (1-TrashPercentNetUsed) {
-		fmt.Printf("Network bandwidth usage high: %d Mbit/s available\n", FreeNet/BytesInMB)
+		fmt.Printf("Network bandwidth usage high: %.0f Mbit/s available\n", FreeNet/BytesInMB)
 	}
 }
 
